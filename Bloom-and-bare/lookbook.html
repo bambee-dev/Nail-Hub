@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lookbook &amp; Shop — Bloom &amp; Bare</title>
+<meta name="description" content="Browse the lookbook by vibe, then shop global sizing kits, custom press-ons, and a free nail-growth guide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { cream:'#FBF6EF', creamdim:'#F5EEE3', blush:'#F1D9D6', nude:'#E4C3A3', rose:'#C77B86', rosedeep:'#B15C6A', charcoal:'#2B2622', charcoalsoft:'#554C44', gold:'#AD8A55', goldlight:'#D9C39D' },
+      fontFamily: { display:['Fraunces','serif'], body:['Manrope','sans-serif'] },
+    } },
+  };
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="font-body bg-cream text-charcoal">
+
+<!-- ============ NAV ============ -->
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-creamdim">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+    <a href="index.html" class="font-display text-2xl tracking-wide">Bloom &amp; Bare</a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="why-nails.html" class="nav-link">Why Nails?</a>
+      <a href="quiz.html" class="nav-link">Style Quiz</a>
+      <a href="mixer.html" class="nav-link">Look Mixer</a>
+      <a href="lookbook.html" class="nav-link active">Lookbook</a>
+      <a href="mynails.html" class="icon-link" aria-label="My Nails">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 8.5a3.5 3.5 0 0 0-6.5-1.8M12 21c-4-3-7-6.5-7-10a4.5 4.5 0 0 1 9-1.5"/><circle cx="12" cy="8" r="3"/></svg>
+        <span class="dot" aria-hidden="true"></span>
+      </a>
+      <a href="lookbook.html#shop" class="btn-secondary !py-2.5 !px-6 text-sm">Shop &amp; Book</a>
+    </nav>
+    <button id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-2" aria-label="Toggle menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden px-6">
+    <div class="flex flex-col gap-4 pb-6">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="why-nails.html" class="nav-link">Why Nails?</a>
+      <a href="quiz.html" class="nav-link">Style Quiz</a>
+      <a href="mixer.html" class="nav-link">Look Mixer</a>
+      <a href="lookbook.html" class="nav-link active">Lookbook</a>
+      <a href="mynails.html" class="nav-link">My Nails</a>
+      <a href="lookbook.html#shop" class="nav-link">Shop &amp; Book</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LOOKBOOK HERO + FILTERS ============ -->
+<section class="hero-texture py-14 sm:py-16">
+  <div class="max-w-3xl mx-auto px-6 text-center mb-10">
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style="color:var(--gold)">The lookbook</p>
+    <h1 class="font-display text-4xl sm:text-5xl mb-4">Browse by vibe</h1>
+    <p class="text-base leading-relaxed" style="color:var(--charcoal-soft)">Every set here started as one of these three moods. Find yours.</p>
+  </div>
+  <div class="flex flex-wrap justify-center gap-3 px-6">
+    <button type="button" class="filter-pill active" data-vibe="all">All</button>
+    <button type="button" class="filter-pill" data-vibe="corporate">Corporate</button>
+    <button type="button" class="filter-pill" data-vibe="bold">Bold</button>
+    <button type="button" class="filter-pill" data-vibe="clean">Clean Girl</button>
+  </div>
+</section>
+
+<!-- ============ LOOKBOOK GRID ============ -->
+<section class="pb-24 pt-4">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="lookbook-item reveal soft-card overflow-hidden" data-vibe="corporate" data-name="Almond, Milky Rose" data-shape="almond" data-color="#F1D9D6">
+        <div class="aspect-[4/5] bg-nude relative">
+          <button type="button" class="lookbook-heart" aria-label="Save Almond, Milky Rose to My Nails" aria-pressed="false">♡</button>
+        </div>
+        <div class="p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--gold)">Corporate</p>
+          <h3 class="font-display text-lg">Almond, Milky Rose</h3>
+        </div>
+      </article>
+
+      <article class="lookbook-item reveal soft-card overflow-hidden" data-vibe="bold" data-name="Coffin, Line Art" data-shape="coffin" data-color="#C77B86">
+        <div class="aspect-[4/5] bg-rose/40 relative">
+          <button type="button" class="lookbook-heart" aria-label="Save Coffin, Line Art to My Nails" aria-pressed="false">♡</button>
+        </div>
+        <div class="p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--gold)">Bold</p>
+          <h3 class="font-display text-lg">Coffin, Line Art</h3>
+        </div>
+      </article>
+
+      <article class="lookbook-item reveal soft-card overflow-hidden" data-vibe="clean" data-name="Short Oval, Bare Glaze" data-shape="oval" data-color="#F5EEE3">
+        <div class="aspect-[4/5] bg-creamdim relative">
+          <button type="button" class="lookbook-heart" aria-label="Save Short Oval, Bare Glaze to My Nails" aria-pressed="false">♡</button>
+        </div>
+        <div class="p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--gold)">Clean Girl</p>
+          <h3 class="font-display text-lg">Short Oval, Bare Glaze</h3>
+        </div>
+      </article>
+
+      <article class="lookbook-item reveal soft-card overflow-hidden" data-vibe="corporate" data-name="Square, Soft Nude" data-shape="square" data-color="#E4C3A3">
+        <div class="aspect-[4/5] bg-blush relative">
+          <button type="button" class="lookbook-heart" aria-label="Save Square, Soft Nude to My Nails" aria-pressed="false">♡</button>
+        </div>
+        <div class="p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--gold)">Corporate</p>
+          <h3 class="font-display text-lg">Square, Soft Nude</h3>
+        </div>
+      </article>
+
+      <article class="lookbook-item reveal soft-card overflow-hidden" data-vibe="clean" data-name="Oval, Milk Bath" data-shape="oval" data-color="#D9C39D">
+        <div class="aspect-[4/5] bg-goldlight/50 relative">
+          <button type="button" class="lookbook-heart" aria-label="Save Oval, Milk Bath to My Nails" aria-pressed="false">♡</button>
+        </div>
+        <div class="p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--gold)">Clean Girl</p>
+          <h3 class="font-display text-lg">Oval, Milk Bath</h3>
+        </div>
+      </article>
+
+      <article class="lookbook-item reveal soft-card overflow-hidden" data-vibe="bold" data-name="Long Coffin, Chrome" data-shape="coffin" data-color="#2B2622">
+        <div class="aspect-[4/5] bg-nude/70 relative">
+          <button type="button" class="lookbook-heart" aria-label="Save Long Coffin, Chrome to My Nails" aria-pressed="false">♡</button>
+        </div>
+        <div class="p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--gold)">Bold</p>
+          <h3 class="font-display text-lg">Long Coffin, Chrome</h3>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP / ECOMMERCE ============ -->
+<section id="shop" class="py-20 bg-white scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style="color:var(--gold)">Global shop</p>
+      <h2 class="font-display text-3xl sm:text-4xl mb-4">Take the studio home — anywhere</h2>
+      <p class="text-base leading-relaxed" style="color:var(--charcoal-soft)">
+        No studio nearby? These ship worldwide, and the guide below is free either way.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Sizing Finder Kit -->
+      <div class="reveal soft-card p-7 flex flex-col">
+        <div class="aspect-square rounded-2xl bg-creamdim mb-5 flex items-center justify-center">
+          <div class="flex gap-2" aria-hidden="true">
+            <span class="nail-mark nail-mark--oval"></span>
+            <span class="nail-mark nail-mark--almond"></span>
+            <span class="nail-mark nail-mark--square"></span>
+          </div>
+        </div>
+        <h3 class="font-display text-xl mb-2">Sizing Finder Kit</h3>
+        <p class="text-sm mb-6 flex-1" style="color:var(--charcoal-soft)">10 nail-shape sizers so your press-on order fits every finger, first time.</p>
+        <div class="flex items-center justify-between">
+          <span class="font-display text-lg">$14</span>
+          <button type="button" class="btn-secondary !py-2 !px-5 text-sm">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Custom Press-On Nails -->
+      <div class="reveal soft-card p-7 flex flex-col border-2" style="border-color:var(--rose-deep)">
+        <div class="aspect-square rounded-2xl bg-blush mb-5 flex items-center justify-center">
+          <div class="flex gap-2" aria-hidden="true">
+            <span class="nail-mark nail-mark--coffin" style="background:var(--rose-deep)"></span>
+            <span class="nail-mark nail-mark--coffin" style="background:var(--gold)"></span>
+            <span class="nail-mark nail-mark--coffin" style="background:var(--charcoal)"></span>
+          </div>
+        </div>
+        <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--rose-deep)">Most popular</p>
+        <h3 class="font-display text-xl mb-2">Custom Luxury Press-Ons</h3>
+        <p class="text-sm mb-6 flex-1" style="color:var(--charcoal-soft)">Hand-finished to your exact sizing and quiz result — reusable for weeks.</p>
+        <div class="flex items-center justify-between">
+          <span class="font-display text-lg">From $48</span>
+          <button type="button" class="btn-primary !py-2 !px-5 text-sm">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Free PDF Guide -->
+      <div class="reveal soft-card p-7 flex flex-col">
+        <div class="aspect-square rounded-2xl bg-nude/60 mb-5 flex items-center justify-center">
+          <div class="flex gap-2" aria-hidden="true">
+            <span class="nail-mark nail-mark--almond"></span>
+          </div>
+        </div>
+        <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color:var(--gold)">Free download</p>
+        <h3 class="font-display text-xl mb-2">Growing Natural Nails Under Extensions</h3>
+        <p class="text-sm mb-6 flex-1" style="color:var(--charcoal-soft)">Our in-house PDF guide — how to protect and grow your natural nail while wearing a set.</p>
+        <div class="flex items-center justify-between">
+          <span class="font-display text-lg">Free PDF</span>
+          <button type="button" class="btn-secondary !py-2 !px-5 text-sm">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-cream border-t border-creamdim py-10 text-center">
+  <p class="text-xs" style="color:var(--charcoal-soft)">© 2026 Bloom &amp; Bare. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

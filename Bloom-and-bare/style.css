@@ -1,0 +1,319 @@
+/* =========================================================
+   BLOOM & BARE — shared design tokens
+   Palette: cream / blush / nude / deep rose / charcoal / gold
+   Type: Fraunces (display) + Manrope (body)
+   Signature: nail-shape silhouettes as structural markers
+   ========================================================= */
+
+:root {
+  --cream: #FBF6EF;
+  --cream-dim: #F5EEE3;
+  --blush: #F1D9D6;
+  --nude: #E4C3A3;
+  --rose: #C77B86;
+  --rose-deep: #B15C6A;
+  --charcoal: #2B2622;
+  --charcoal-soft: #554C44;
+  --gold: #AD8A55;
+  --gold-light: #D9C39D;
+}
+
+* { -webkit-font-smoothing: antialiased; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Manrope', sans-serif;
+}
+
+.font-display { font-family: 'Fraunces', serif; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Nail-shape signature system ---------- */
+/* Each shape is a small SVG mask used as a bullet / divider / icon.
+   These stand in for the "01 / 02 / 03" numbered-marker default —
+   here, shape carries real meaning (it's literally the product). */
+
+.nail-mark {
+  display: inline-block;
+  width: 14px;
+  height: 20px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.nail-mark--almond { border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%; }
+.nail-mark--coffin { clip-path: polygon(20% 0%, 80% 0%, 100% 75%, 50% 100%, 0% 75%); }
+.nail-mark--oval   { border-radius: 50%; }
+.nail-mark--square { border-radius: 30% 30% 8% 8% / 40% 40% 8% 8%; }
+
+.nail-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nail-divider::before,
+.nail-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: var(--gold-light);
+}
+
+/* Focus states — visible keyboard focus everywhere */
+a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible {
+  outline: 2px solid var(--rose-deep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--charcoal);
+  color: var(--cream);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 32px;
+  border-radius: 999px;
+  transition: background 0.25s ease, transform 0.25s ease;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--rose-deep); transform: translateY(-1px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--charcoal);
+  border: 1.5px solid var(--charcoal);
+  font-weight: 600;
+  padding: 12.5px 30px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+.btn-secondary:hover { background: var(--charcoal); color: var(--cream); }
+
+/* Nav */
+.nav-link {
+  position: relative;
+  color: var(--charcoal-soft);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 1.5px;
+  background: var(--rose-deep);
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link.active { color: var(--charcoal); }
+
+/* Hero grain / texture accent (subtle, not decorative overload) */
+.hero-texture {
+  background-image: radial-gradient(circle at 20% 20%, rgba(173,138,85,0.08), transparent 40%),
+                     radial-gradient(circle at 80% 60%, rgba(199,123,134,0.10), transparent 45%);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Card */
+.soft-card {
+  background: #fff;
+  border: 1px solid var(--cream-dim);
+  border-radius: 24px;
+}
+
+/* Quiz specific */
+.quiz-option {
+  border: 1.5px solid var(--cream-dim);
+  background: #fff;
+  border-radius: 18px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.quiz-option:hover { border-color: var(--gold); background: var(--cream-dim); }
+.quiz-option.selected { border-color: var(--rose-deep); background: var(--blush); }
+
+.progress-track {
+  height: 4px;
+  background: var(--cream-dim);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* Label-style result card (signature: polish-bottle label, not a generic box) */
+.label-card {
+  background: var(--cream);
+  border: 1.5px solid var(--charcoal);
+  border-radius: 4px 4px 60px 60px / 4px 4px 24px 24px;
+  position: relative;
+}
+.label-card::before {
+  content: '';
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  width: 46px; height: 16px;
+  background: var(--charcoal);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Lookbook save-to-journal heart */
+.lookbook-heart {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  background: rgba(251,246,239,0.9);
+  color: var(--charcoal);
+  font-size: 1.15rem;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(43,38,34,0.08);
+  transition: all 0.2s ease;
+}
+.lookbook-heart:hover { background: var(--cream); transform: scale(1.08); }
+.lookbook-heart.saved { background: var(--rose-deep); color: #fff; border-color: var(--rose-deep); }
+
+/* Lookbook filter pill */
+.filter-pill {
+  border: 1.5px solid var(--charcoal);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.filter-pill.active { background: var(--charcoal); color: var(--cream); }
+.filter-pill:not(.active):hover { background: var(--cream-dim); }
+
+/* Mobile nav */
+#mobile-menu { transition: max-height 0.3s ease; overflow: hidden; }
+
+/* ---------- Nail-mark finish overlays (for Look Mixer) ---------- */
+.finish-glossy { box-shadow: inset -3px -5px 8px rgba(255,255,255,0.55), inset 2px 3px 4px rgba(0,0,0,0.08); }
+.finish-matte  { filter: saturate(0.7) brightness(0.97); }
+.finish-chrome { background-image: linear-gradient(135deg, #fff 0%, currentColor 35%, #fff 60%, currentColor 100%) !important; }
+.finish-glitter {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.95) 1px, transparent 1.6px);
+  background-size: 7px 7px;
+}
+
+/* ---------- Profile / My Nails icon link ---------- */
+.icon-link {
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--charcoal);
+  transition: all 0.2s ease;
+  position: relative;
+}
+.icon-link:hover { background: var(--charcoal); color: var(--cream); }
+.icon-link .dot {
+  position: absolute; top: -2px; right: -2px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--rose-deep);
+  border: 2px solid var(--cream);
+  display: none;
+}
+.icon-link .dot.show { display: block; }
+
+/* ---------- Tabs (My Nails hub) ---------- */
+.tab-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--creamdim);
+  background: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.tab-btn.active { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ---------- Regrowth Tracker ---------- */
+.growth-ring-track { stroke: var(--creamdim); }
+.growth-ring-fill { stroke: var(--rose-deep); transition: stroke-dashoffset 0.6s ease, stroke 0.4s ease; }
+.growth-ring-fill.overdue { stroke: #B34A3D; }
+.growth-ring-fill.fresh { stroke: var(--gold); }
+
+/* ---------- Journal grid ---------- */
+.journal-card {
+  background: #fff;
+  border: 1px solid var(--creamdim);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.journal-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(43,38,34,0.08); }
+.journal-remove {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; line-height: 1;
+  cursor: pointer;
+}
+
+/* ---------- Daily Vibe Check ---------- */
+.vibe-chip {
+  border: 1.5px solid var(--creamdim);
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.vibe-chip:hover { border-color: var(--gold); }
+.vibe-chip.selected { border-color: var(--rose-deep); background: var(--blush); }
+.streak-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--charcoal); color: var(--cream);
+  padding: 6px 16px; border-radius: 999px;
+  font-size: 0.8rem; font-weight: 700;
+}
+
+/* ---------- Look Mixer swatch ---------- */
+.mixer-swatch {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mixer-swatch.selected { border-color: var(--charcoal); transform: scale(1.1); }
+.mixer-option {
+  border: 1.5px solid var(--creamdim);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mixer-option.selected { border-color: var(--rose-deep); background: var(--blush); }
